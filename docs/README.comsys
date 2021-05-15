@@ -1,0 +1,29 @@
+ -- Installation instruction --
+clone this repo
+cd inside dash7/ 
+execute the following commands: 
+
+apt-get install swig
+mkdir build 
+cd build 
+cmake ../
+make
+make test
+sudo make install
+sudo ldconfig 
+
+reload gnuradio & check if you have a folder named "comsys" appearing in the library
+Under the /flowgraph folder, you have the crc&pn9 checking flowgraph, the simulator (working) and the receiver (work in progress).
+
+*Note* It might be necessary to replace the ASCII TO PAM hierarchial block in the simulator. This hier-block can also be found under /flowgraphs.
+
+
+
+-- Testing instructions -- 
+If you want more detailed test output (e.g. in case a test fails), you can run the following command 
+Navigate to the /build folder
+"ctest -V -R qa_pn9_whitening"
+
+replace qa_pn9_whitening for your UUT.
+
+
